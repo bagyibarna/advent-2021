@@ -37,14 +37,15 @@ fn solve_input<'a, T: Iterator<Item = &'a str>>(it: T) -> [u8; 7] {
 
     let cf = processed[0].1;
     let acf = processed[1].1;
+    let bcdf = processed[2].1;
     let adg = processed[3].1 & processed[4].1 & processed[5].1;
     let be = !acf & !adg & 0b1111111;
     let cde = !(processed[6].1 & processed[7].1 & processed[8].1) & 0b1111111;
 
     let a = acf & !cf;
-    let b = processed[2].1 & be;
+    let b = bcdf & be;
     let e = be & !b;
-    let g = adg & !(a | processed[2].1);
+    let g = adg & !(a | bcdf);
     let d = adg & !(a | g);
     let c = cde & !(d | e);
     let f = cf & !c;
