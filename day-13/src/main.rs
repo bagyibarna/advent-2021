@@ -72,7 +72,7 @@ fn main() {
     while let Some(coord) = parse_point(lines.next().unwrap()) {
         coords.push(coord);
         max_x = max_x.max(coord.0);
-        max_y = max_y.max(coord.0);
+        max_y = max_y.max(coord.1);
     }
 
     let folds = lines.map(parse_fold).collect::<Vec<_>>();
